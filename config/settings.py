@@ -573,6 +573,8 @@ SESSION_COOKIE_HTTPONLY = True
 
 CSRF_COOKIE_HTTPONLY = True
 
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
@@ -626,3 +628,4 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
