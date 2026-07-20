@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary_storage.storage import VideoMediaCloudinaryStorage
 from artists.models import Artist
 from accounts.models import CustomUser
 from django.conf import settings
@@ -31,7 +32,10 @@ class Song(models.Model):
 
     cover_image = models.URLField(max_length=500, blank=True, null=True)
 
-    audio_file = models.FileField(upload_to='songs/')
+    audio_file = models.FileField(
+        upload_to='songs/',
+        storage=VideoMediaCloudinaryStorage(),
+    )
 
     lyrics = models.TextField(blank=True, null=True)
 
